@@ -1,13 +1,62 @@
-.bullets {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Permanent Marker", cursive;
+}
+
+body {
   display: flex;
   justify-content: center;
-  font-size: 20px;
-  transform: translate(0, 150%);
+  align-items: center;
+  min-height: 100vh;
+  background: #222;
 }
-li {
-  padding: 2px;
+
+main {
+  position: relative;
+  width: 450px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  overflow: hidden;
+  border-radius: 20px;
 }
-body {
-  background: linear-gradient(to right, #c94b4b, #4b134f);
+
+main h1 {
+  position: relative;
   color: white;
+  width: auto;
+  height: auto;
+  background-color: #111;
+  font-size: 5em;
+  text-align: center;
+  z-index: 10;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 320%;
+  background: linear-gradient(#da0707, #0f9dfc);
+  animation: animate 4s linear infinite;
+}
+main::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: #111;
+  border-radius: 16px;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
