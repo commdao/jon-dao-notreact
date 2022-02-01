@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Permanent Marker", cursive;
+  font-family: "Quicksand", sans-serif;
 }
 
 body {
@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #222;
+  background: #191938;
 }
 
 main {
@@ -20,7 +20,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #111;
+  background: #32324e;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -30,9 +30,12 @@ main h1 {
   color: white;
   width: auto;
   height: auto;
-  background-color: #111;
+  background-color: #191938;
   font-size: 5em;
   text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-style: italic;
   z-index: 10;
 }
 
@@ -48,7 +51,7 @@ main::after {
   content: "";
   position: absolute;
   inset: 4px;
-  background: #111;
+  background: #191938;
   border-radius: 16px;
 }
 
@@ -59,4 +62,11 @@ main::after {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.socialbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
