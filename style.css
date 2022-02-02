@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
+  color: rgb(102, 101, 101);
 }
 
 body {
@@ -65,10 +66,28 @@ main::after {
 }
 
 .socialbtn {
+  position: absolute;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  z-index: 11;
+  transform: translate(0px, 100px);
+}
+
+.button {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.button:hover p:hover {
+  background-color: white;
+  color: #0f9dfc;
 }
 
 @media all and (max-width: 500px) {
