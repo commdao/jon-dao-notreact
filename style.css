@@ -43,10 +43,10 @@ main h1 {
 main::before {
   content: "";
   position: absolute;
-  width: 50px;
+  width: 10px;
   height: 320%;
   background: linear-gradient(#da0707, #0f9dfc);
-  animation: animate 4s linear infinite;
+  animation: animate 7s linear infinite;
 }
 main::after {
   content: "";
