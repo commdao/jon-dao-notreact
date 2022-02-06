@@ -14,56 +14,35 @@ body {
   background: #191938;
 }
 
+body.light{
+  background: #e4e4e4;
+  color: #191938;
+}
+
+.dark-mode{
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 45px;
+  height: 20px;
+  text-align: center;
+}
+
 main {
-  position: relative;
-  width: 450px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #32324e;
-  overflow: hidden;
   border-radius: 20px;
 }
 
 main h1 {
   position: relative;
-  color: white;
-  width: auto;
-  height: auto;
-  background-color: #191938;
-  font-size: 5em;
-  text-align: center;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-style: italic;
-  z-index: 10;
+  transition: .2s;
 }
 
-main::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 320%;
-  background: linear-gradient(#da0707, #0f9dfc);
-  animation: animate 7s linear infinite;
-}
-main::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  background: #191938;
-  border-radius: 16px;
+body.light main h1 {
+  color: #191938;
 }
 
-@keyframes animate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
+
 
 .socialbtn {
   position: absolute;
@@ -101,3 +80,13 @@ p:hover {
     font-size: 3em;
   }
 }
+
+/* @media (prefers-color-scheme: dark) {
+  body   { background:  #333; color: white; }
+  h1 { background: black; color:  #ddd; }
+}
+
+@media (prefers-color-scheme: light) {
+  body   { background: white; color:  #555; }
+  h1 { background:  #eee; color: black; }
+} */
