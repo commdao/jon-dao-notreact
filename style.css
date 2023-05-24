@@ -22,8 +22,10 @@ h1 {
     padding: 0;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
+    max-width: 90%;
     text-align: center;
     color: white;
     font-size: 5rem;
@@ -78,4 +80,14 @@ h1 span:nth-child(6)
 h1 span:nth-child(7)
 {
   animation-delay: 2s;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.5rem; /* Adjust the value as needed */
+    transform: translate(-50%, -50%);
+    left: 50%;
+    max-width: 100%;
+    text-align: center;
+  }
 }
