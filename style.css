@@ -34,6 +34,7 @@ h1 {
     font-family: sans-serif; 
     letter-spacing: 0.2rem;
     text-shadow: 5px 5px 5px black;
+    user-select: none;
 }
 
 h1 span {
@@ -131,6 +132,7 @@ nav ul li a:hover {
     left: 50%;
     max-width: 100%;
     text-align: center;
+    user-select: none;
   }
   section video {
     width: 100vw;
