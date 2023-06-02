@@ -15,9 +15,9 @@
     <header>
         <nav>
           <ul>
-            <li><a href="#home">HOME</a></li>
+            <li><a href="#home" id="home-link">HOME</a></li>
             <li><a href="#projects">PROJECTS</a></li>
-            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#about" id="about-link">ABOUT</a></li>
           </ul>
         </nav>
       </header>
@@ -32,6 +32,41 @@
                 <span>A</span>
                 <span>O</span>
             </h1>
+            <div class="about">
+              <p>
+              I still might not know what it really means to be me, Jon Dao, but there's
+              a couple of things that keep floating around in my brain:
+              </p>
+              <h2>Music</h2>
+              <p>
+              So, it turns out that I don't listen to music like most people do. Instead of
+              appreciating a song for what it is, I can't help but stack it against what it
+              could/should sound like in my head.
+              </p>
+              <p>
+              Judging people? Problematic! Scheming the potential sounds of a song? An ARTEEST!  
+              </p>
+              <p>
+              Now I'm taking those ideas to learn and turn them into actual remixes, mashups, and arrangements?
+              Maybe I'll start rapping again too...
+              </p>
+              <div class="youtube-wrapper">
+                <iframe width="266.67" height="150" src="https://www.youtube.com/embed/PZRv7hCcGFo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
         </section>
+        <script>
+          const homeLink = document.getElementById("home-link");
+          const aboutLink = document.getElementById("about-link");
+          const section = document.querySelector("section");
+
+          homeLink.addEventListener("click", () => {
+            section.classList.remove("active");
+          });
+
+          aboutLink.addEventListener("click", () => {
+            section.classList.add("active");
+          });
+        </script>
 </body>
 </html>

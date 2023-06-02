@@ -143,3 +143,44 @@ nav ul li a:hover {
     display: none;
   }
 }
+
+.about {
+  margin: 0;
+  padding: 20px;
+  position: absolute;
+  top: calc(55% + 10px + 50px); /* Adjust the value as needed */
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(20px);
+  width: 100%;
+  max-width: 70%;
+  text-align: left;
+  color: white;
+  font-size: 1rem;
+  font-family: sans-serif; 
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  text-shadow: 3px 2px 1px black;
+  user-select: none;
+  display: none;
+  z-index: 2; /* Ensure a higher value than the section video */
+}
+
+
+section.active .about {
+  display: block;
+}
+
+section.active h1 {
+  display: none;
+}
+
+.about p {
+  margin: 1rem 0;
+}
+
+.youtube-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 20px;
+}
