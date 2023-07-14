@@ -1,3 +1,8 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 200;
+}
+
 .bullets {
   display: flex;
   justify-content: center;
@@ -6,8 +11,9 @@
 }
 li {
   padding: 2px;
+  list-style-type: circle;
 }
 body {
-  background: linear-gradient(to right, #c94b4b, #4b134f);
+  background: linear-gradient(to right, #930679, #4b134f);
   color: white;
 }
