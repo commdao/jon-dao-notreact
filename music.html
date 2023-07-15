@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>BlackJackJonny</title>
     <style>
         body {
@@ -58,9 +59,9 @@
             padding-left: 30px;
             padding-bottom: 30px;
         }
-        .icon:hover {
+        /* .icon:hover {
             font-size: 3rem;
-        }
+        } */
         .header {
             border-bottom: 1px solid white;
         }
@@ -94,8 +95,54 @@
             padding-right: 50px;
         }
         .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
             background: rgb(43, 11, 45);
-        }
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            }
+
+            .song-photo {
+            width: 50px;
+            height: 50px;
+            background-color: gray;
+            border-radius: 25px;
+            }
+
+            .heart {
+            width: 50px;
+            height: 50px;
+            }
+
+            .miniplayer {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            margin-bottom: 0;
+            }
+
+            .controls {
+            display: flex;
+            gap: 10px;
+            }
+
+            .progress-bar {
+            width: 30%;
+            height: 4px;
+            background: grey;
+            margin-top: 10px;
+            }
+
+            .time {
+            margin-left: 10px;
+            }
         
     </style>
 </head>
@@ -113,8 +160,8 @@
     </div>
     
     <div class="icon">
-        <span class="play">⏯️</span>
-        <span class="heart">🤍</span>
+        <span class="play"><i class="fa fa-play" aria-hidden="true"></i></span>
+        <span class="heart"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
         <span class="dots">...</span>
     </div>
 
@@ -124,7 +171,7 @@
             <span class="track-number">#</span>
             <span class="track-title">Title</span>
             <span class="track-year">Year</span>
-            <span class="track-duration">🕒</span>
+            <span class="track-duration"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
         </div>
         <div class="track">
             <span class="track-number">1</span>
@@ -177,14 +224,16 @@
     </div>
     <div class="footer">
         <span class="song-photo"></span>
-        <span class="heart"></span>
+        <span class="heart"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
         <div class="miniplayer">
-            <span class="shuffle"></span>
-            <span class="previous"></span>
-            <span class="play"></span>
-            <span class="next"></span>
-            <span class="repeat"></span>
-            <span class="progress-bar"></span>
+            <div class="controls">
+                <span class="shuffle"><i class="fa fa-random fa-lg" aria-hidden="true"></i></span>
+                <span class="previous"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></span>
+                <span class="play"><i class="fa fa-play fa-lg" aria-hidden="true"></i></span>
+                <span class="next"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></span>
+                <span class="repeat"><i class="fa fa-repeat fa-lg" aria-hidden="true"></i></span>
+            </div>
+            <div class="progress-bar"></div>
             <span class="time"></span>
         </div>
     </div>
