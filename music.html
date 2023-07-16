@@ -77,12 +77,31 @@
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+            position: relative;
         }
 
         .track-number {
             width: 30px;
             text-align: right;
             margin-right: 10px;
+        }
+
+        .track-number::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 16px;
+        }
+
+        .track:hover .track-number::before {
+        display: block;
+        content: "\f144";
         }
 
         .track-title {
@@ -196,6 +215,7 @@
             <span class="track-title">Garibaldi Temple Remix</span>
             <span class="track-year">2021</span>
             <span class="track-duration">1:57</span>
+            
         </div>
         <div class="track">
             <span class="track-number">5</span>
@@ -228,14 +248,76 @@
         <div class="miniplayer">
             <div class="controls">
                 <span class="shuffle"><i class="fa fa-random fa-lg" aria-hidden="true"></i></span>
-                <span class="previous"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></span>
-                <span class="play"><i class="fa fa-play fa-lg" aria-hidden="true"></i></span>
-                <span class="next"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></span>
+                <span class="previous" id="prevIcon"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></span>
+                <span class="play" id="playIcon"><i class="fa fa-play fa-lg" aria-hidden="true"></i></span>
+                <span class="next" id="nextIcon"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></span>
                 <span class="repeat"><i class="fa fa-repeat fa-lg" aria-hidden="true"></i></span>
             </div>
-            <div class="progress-bar"></div>
+            <div id="progress-bar"></div>
             <span class="time"></span>
         </div>
     </div>
+    <script>
+        let tracks = {
+            1: 'media/tracks/1 - Melty Blood Basilica.m4a',
+            2: 'media/tracks/2 - Private Room.m4a',
+            3: 'media/tracks/3 - Tie a Cherry.m4a',
+            4: 'media/tracks/4 - Garibaldi Temple Remix.m4a',
+            5: 'media/tracks/5 - Horny Chiptune.m4a',
+            6: 'media/tracks/6 - Winter Sonata.m4a',
+            7: 'media/tracks/7 - Tulibu Dibu Douchu.m4a',
+            8: 'media/tracks/8 - HBV.mp3'
+        }
+        const audioPlayer = new Audio(); // Create an Audio object
+        function playTrack(tracks) {
+            audioPlayer.src = tracks;
+            audioPlayer.play();
+        }
+
+        const playButton = document.getElementById('playIcon');
+        playButton.addEventListener('click', togglePlay);
+
+        function togglePlay() {
+            console.log('working')
+        if (audioPlayer.paused) {
+            audioPlayer.play(); // Play the audio
+            playButton.innerHTML = '<i class="fa fa-pause fa-lg" aria-hidden="true"></i>'; // Update the play icon to pause icon
+        } else {
+            audioPlayer.pause(); // Pause the audio
+            playButton.innerHTML = '<i class="fa fa-play fa-lg" aria-hidden="true"></i>'; // Update the pause icon to play icon
+        }
+    }
+
+        const nextButton = document.getElementById('nextIcon');
+        const prevButton = document.getElementById('prevIcon');
+        let currentTrackIndex = 0;
+
+        nextButton.addEventListener('click', playNextTrack);
+        prevButton.addEventListener('click', playPreviousTrack);
+
+        function playNextTrack() {
+        currentTrackIndex = (currentTrackIndex + 1) % Object.keys(tracks).length;
+        const nextTrackPath = tracks[currentTrackIndex + 1];
+        playTrack(nextTrackPath);
+        }
+
+        function playPreviousTrack() {
+        currentTrackIndex = (currentTrackIndex - 1 + Object.keys(tracks).length) % Object.keys(tracks).length;
+        const previousTrackPath = tracks[currentTrackIndex + 1];
+        playTrack(previousTrackPath);
+        }
+
+        const progressBar = document.getElementById('progressBar');
+
+        audioPlayer.addEventListener('timeupdate', updateProgressBar);
+
+        function updateProgressBar() {
+        const currentTime = audioPlayer.currentTime;
+        const duration = audioPlayer.duration;
+        const progress = (currentTime / duration) * 100;
+
+        progressBar.style.width = `${progress}%`;
+        }
+    </script>
 </body>
 </html>
