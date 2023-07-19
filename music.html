@@ -5,165 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="music-style.css">
     <title>BlackJackJonny</title>
-    <style>
-        body {
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 200;
-            background: rgb(75,19,79);
-        }
-        img {
-            height: 250px;
-            width: 250px;
-            margin-top: 50px;
-            padding-left: 50px;
-            border-radius: 100px;
-        }
-        .spotlight {
-            background: rgb(75,19,79);
-            background: linear-gradient(23deg, rgba(75,19,79,1) 0%, rgba(211,111,214,1) 100%, rgba(34,34,34,1) 100%);
-            display: flex;
-        
-        }
-        .bio {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            padding-bottom: 25px;
-        }
-        h1 {
-            font-size: 4rem;
-            margin-top: 100px;
-            margin-bottom: 0;
-            padding-left: 10px;
-            text-align: center;
-        }
-        .details {
-            display: flex;
-            padding-left: 90px;
-            justify-content: center;
-            align-items: center;
-        }
-        .track {
-            margin-top: 0;
-            justify-content: left;
-        }
-        .tracklist {
-            background: rgb(75,19,79);
-            margin-top: 10px;
-            font-size: 1.15rem;
-        }
-        .icon {
-            font-size: 2rem;
-            margin: 5px;
-            padding-left: 30px;
-            padding-bottom: 30px;
-        }
-        /* .icon:hover {
-            font-size: 3rem;
-        } */
-        .header {
-            border-bottom: 1px solid white;
-        }
-        .tracklist {
-            padding-left: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-        }
-
-        .track {
-            margin: 5px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        .track-number {
-            width: 30px;
-            text-align: right;
-            margin-right: 10px;
-        }
-
-        .track-number::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: none;
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        font-size: 16px;
-        }
-
-        .track:hover .track-number::before {
-        display: block;
-        content: "\f144";
-        }
-
-        .track-title {
-            flex-grow: 1;
-        }
-
-        .track-duration {
-            width: 60px;
-            text-align: right;
-            padding-right: 50px;
-        }
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background: rgb(43, 11, 45);
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            }
-
-            .song-photo {
-            width: 50px;
-            height: 50px;
-            background-color: gray;
-            border-radius: 25px;
-            }
-
-            .heart {
-            width: 50px;
-            height: 50px;
-            }
-
-            .miniplayer {
-            
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            margin-bottom: 0;
-            }
-
-            .controls {
-            display: flex;
-            gap: 10px;
-            }
-
-            .progress-bar {
-            width: 30%;
-            height: 4px;
-            background: grey;
-            margin-top: 10px;
-            }
-
-            .time {
-            margin-left: 10px;
-            }
-        
-    </style>
 </head>
 <body>
     <div class="spotlight">
@@ -252,72 +95,17 @@
                 <span class="play" id="playIcon"><i class="fa fa-play fa-lg" aria-hidden="true"></i></span>
                 <span class="next" id="nextIcon"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></span>
                 <span class="repeat"><i class="fa fa-repeat fa-lg" aria-hidden="true"></i></span>
+                <div class="track-name" id="currentTrackName"></div>
             </div>
-            <div id="progress-bar"></div>
-            <span class="time"></span>
+            <div class="progress-bar-container">
+                <div id="progress-bar"></div>
+                <div class="time">
+                  <span class="current-time">0:00</span>
+                  <span class="total-duration">0:00</span>
+                </div>
+            </div>
         </div>
     </div>
-    <script>
-        let tracks = {
-            1: 'media/tracks/1 - Melty Blood Basilica.m4a',
-            2: 'media/tracks/2 - Private Room.m4a',
-            3: 'media/tracks/3 - Tie a Cherry.m4a',
-            4: 'media/tracks/4 - Garibaldi Temple Remix.m4a',
-            5: 'media/tracks/5 - Horny Chiptune.m4a',
-            6: 'media/tracks/6 - Winter Sonata.m4a',
-            7: 'media/tracks/7 - Tulibu Dibu Douchu.m4a',
-            8: 'media/tracks/8 - HBV.mp3'
-        }
-        const audioPlayer = new Audio(); // Create an Audio object
-        function playTrack(tracks) {
-            audioPlayer.src = tracks;
-            audioPlayer.play();
-        }
-
-        const playButton = document.getElementById('playIcon');
-        playButton.addEventListener('click', togglePlay);
-
-        function togglePlay() {
-            console.log('working')
-        if (audioPlayer.paused) {
-            audioPlayer.play(); // Play the audio
-            playButton.innerHTML = '<i class="fa fa-pause fa-lg" aria-hidden="true"></i>'; // Update the play icon to pause icon
-        } else {
-            audioPlayer.pause(); // Pause the audio
-            playButton.innerHTML = '<i class="fa fa-play fa-lg" aria-hidden="true"></i>'; // Update the pause icon to play icon
-        }
-    }
-
-        const nextButton = document.getElementById('nextIcon');
-        const prevButton = document.getElementById('prevIcon');
-        let currentTrackIndex = 0;
-
-        nextButton.addEventListener('click', playNextTrack);
-        prevButton.addEventListener('click', playPreviousTrack);
-
-        function playNextTrack() {
-        currentTrackIndex = (currentTrackIndex + 1) % Object.keys(tracks).length;
-        const nextTrackPath = tracks[currentTrackIndex + 1];
-        playTrack(nextTrackPath);
-        }
-
-        function playPreviousTrack() {
-        currentTrackIndex = (currentTrackIndex - 1 + Object.keys(tracks).length) % Object.keys(tracks).length;
-        const previousTrackPath = tracks[currentTrackIndex + 1];
-        playTrack(previousTrackPath);
-        }
-
-        const progressBar = document.getElementById('progressBar');
-
-        audioPlayer.addEventListener('timeupdate', updateProgressBar);
-
-        function updateProgressBar() {
-        const currentTime = audioPlayer.currentTime;
-        const duration = audioPlayer.duration;
-        const progress = (currentTime / duration) * 100;
-
-        progressBar.style.width = `${progress}%`;
-        }
-    </script>
+    <script src="music-main.js"></script>
 </body>
 </html>
