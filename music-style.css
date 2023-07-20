@@ -154,16 +154,31 @@ h1 {
 }
 
 .progress-bar-container {
-    width: 100%;
+    position: relative;
+    width: 30%;
     height: 10px;
-    background: grey;
+    border-radius: 25px;
+    background: rgb(208, 205, 205, .8);
     margin-top: 10px;
+    cursor: pointer;
+}
+
+.progress-bar-handle {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    pointer-events: none;
 }
 
 #progress-bar {
     height: 100%;
-    background: green;
+    background: rgb(1, 202, 1);
     width: 0%;
+    border-radius: 25px;
     transition: width 0.1s ease-in-out;
 }
 
@@ -173,4 +188,33 @@ h1 {
 
 .time {
     margin-left: 10px;
+}
+
+.volume-slider-container {
+    width: 6px;
+    height: 70px;
+    background-color: grey;
+    position: relative;
+    visibility: hidden; /* Set the initial visibility to hidden */
+}
+
+.volume-slider {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    height: 70%;
+    pointer-events: none; /* Disable mouse events on the volume slider initially */
+}
+
+.volume-icon {
+    cursor: pointer;
+}
+
+.volume-slider-container.visible {
+    visibility: visible; /* Show the volume slider when the 'visible' class is added */
+}
+
+.volume-slider-container:hover .volume-slider {
+    background-color: #fff5; /* Add a slight color change on hover */
 }

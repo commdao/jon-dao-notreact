@@ -115,3 +115,98 @@ function formatTime(time) {
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
+
+// scrubbing the progress bar feature
+// Add these variables to keep track of scrubbing state and initial progress bar width
+let isScrubbing = false;
+let scrubStartX = 0;
+let initialProgressBarWidth = progressBarContainer.getBoundingClientRect().width;
+
+// Add new event listeners for scrubbing
+progressBarContainer.addEventListener('mousedown', handleScrubStart);
+window.addEventListener('mousemove', handleScrubMove);
+window.addEventListener('mouseup', handleScrubEnd);
+
+function handleScrubStart(event) {
+    isScrubbing = true;
+    scrubStartX = event.clientX;
+    initialProgressBarWidth = progressBarContainer.getBoundingClientRect().width;
+}
+
+function handleScrubMove(event) {
+    if (!isScrubbing) return;
+
+    const offsetX = event.clientX - progressBarContainer.getBoundingClientRect().left;
+    const scrubPercentage = Math.max(0, Math.min(1, offsetX / initialProgressBarWidth));
+
+    const currentTrack = tracks[currentTrackIndex + 1];
+    const duration = convertTimeToSeconds(currentTrack.duration);
+    const seekTime = duration * scrubPercentage;
+
+    progressBar.style.width = `${scrubPercentage * 100}%`;
+    currentTimeDisplay.textContent = formatTime(seekTime);
+}
+
+function handleScrubEnd(event) {
+    if (!isScrubbing) return;
+
+    isScrubbing = false;
+
+    const offsetX = event.clientX - progressBarContainer.getBoundingClientRect().left;
+    const scrubPercentage = Math.max(0, Math.min(1, offsetX / initialProgressBarWidth));
+
+    const currentTrack = tracks[currentTrackIndex + 1];
+    const duration = convertTimeToSeconds(currentTrack.duration);
+    const seekTime = duration * scrubPercentage;
+
+    audioPlayer.currentTime = seekTime;
+}
+
+// volume controls
+// Add this to set the default volume to 70%
+audioPlayer.volume = 0.7;
+
+const volumeIcon = document.querySelector('.volume-icon');
+const volumeSliderContainer = document.querySelector('.volume-slider-container');
+const volumeSlider = document.querySelector('.volume-slider');
+
+let isVolumeDragging = false;
+
+// Add event listeners for volume control
+volumeIcon.addEventListener('mouseenter', showVolumeSlider);
+volumeIcon.addEventListener('mouseleave', hideVolumeSlider);
+
+volumeSliderContainer.addEventListener('mousedown', startVolumeDrag);
+window.addEventListener('mousemove', handleVolumeDrag);
+window.addEventListener('mouseup', endVolumeDrag);
+
+function showVolumeSlider() {
+    volumeSliderContainer.classList.add('visible');
+}
+
+function hideVolumeSlider() {
+    volumeSliderContainer.classList.remove('visible');
+}
+
+function startVolumeDrag(event) {
+    isVolumeDragging = true;
+    adjustVolume(event.clientY);
+}
+
+function handleVolumeDrag(event) {
+    if (!isVolumeDragging) return;
+    adjustVolume(event.clientY);
+}
+
+function endVolumeDrag() {
+    isVolumeDragging = false;
+}
+
+function adjustVolume(mouseY) {
+    const volumeSliderRect = volumeSliderContainer.getBoundingClientRect();
+    const offsetY = Math.max(0, Math.min(volumeSliderRect.height, mouseY - volumeSliderRect.top));
+    const volumePercentage = 1 - offsetY / volumeSliderRect.height;
+
+    audioPlayer.volume = volumePercentage;
+    volumeSlider.style.height = `${volumePercentage * 100}%`;
+}
