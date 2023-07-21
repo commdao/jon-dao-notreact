@@ -41,12 +41,36 @@ let tracks = {
     }, 
 };
 
+// Create an array of audio file URLs
+const audioFiles = Object.values(tracks).map(track => track.path);
+
+// Function to preload audio files
+function preloadAudio(audioFiles) {
+    audioFiles.forEach(file => {
+      const audio = new Audio();
+      audio.src = file;
+      audio.preload = 'auto';
+    });
+  }
+  
+  // Call the preload function
+  preloadAudio(audioFiles);
+
 const currentTrackName = document.getElementById('currentTrackName');
 const audioPlayer = new Audio();
+let isAudioLoaded = false;
+
+audioPlayer.addEventListener('canplay', () => {
+    isAudioLoaded = true;
+    updateProgressBar();
+});
+
 function playTrack(trackPath) {
     audioPlayer.src = trackPath;
-    audioPlayer.play();
-    currentTrackName.textContent = tracks[currentTrackIndex + 1].name;
+    audioPlayer.load();
+    audioPlayer.play().catch(() => {
+        console.log("Error: The play request was interrupted.")
+    });
 }
 
 const playButton = document.getElementById('playIcon');
@@ -90,6 +114,9 @@ const totalDurationDisplay = document.querySelector('.total-duration');
 audioPlayer.addEventListener('timeupdate', updateProgressBar);
 
 function updateProgressBar() {
+    if (!isAudioLoaded) {
+        return;
+    }
     const currentTime = audioPlayer.currentTime;
     const currentTrack = tracks[currentTrackIndex + 1];
     if (currentTrack) {
@@ -99,7 +126,7 @@ function updateProgressBar() {
         progressBar.style.width = `${progressPercentage}%`;
         currentTimeDisplay.textContent = formatTime(currentTime);
         totalDurationDisplay.textContent = duration;
-        currentTrackName.textcontent = currentTrack.name;
+        currentTrackName.textContent = currentTrack.name;
     }
 }
 
