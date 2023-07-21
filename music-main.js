@@ -208,10 +208,12 @@ window.addEventListener('mousemove', handleVolumeDrag);
 window.addEventListener('mouseup', endVolumeDrag);
 
 function showVolumeSlider() {
-    volumeSliderContainer.classList.add('visible');
+    console.log('show volume');
+    volumeSliderContainer.classList.add('volume-slider-visible');
 }
 
 function hideVolumeSlider() {
+    console.log('hide volume');
     volumeSliderContainer.classList.remove('visible');
 }
 
@@ -222,6 +224,7 @@ function startVolumeDrag(event) {
 
 function handleVolumeDrag(event) {
     if (!isVolumeDragging) return;
+    event.stopPropagation();
     adjustVolume(event.clientY);
 }
 

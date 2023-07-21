@@ -1,5 +1,6 @@
 body {
     color: rgba(255, 255, 255, 0.9);
+    font-family: sans-serif;
     font-weight: 200;
     background: rgb(75,19,79);
 }
@@ -194,8 +195,13 @@ h1 {
     width: 6px;
     height: 70px;
     background-color: grey;
-    position: relative;
-    visibility: hidden; /* Set the initial visibility to hidden */
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+}
+
+.volume-slider-visible {
+    display: block;
 }
 
 .volume-slider {
@@ -211,10 +217,7 @@ h1 {
     cursor: pointer;
 }
 
-.volume-slider-container.visible {
-    visibility: visible; /* Show the volume slider when the 'visible' class is added */
-}
-
-.volume-slider-container:hover .volume-slider {
-    background-color: #fff5; /* Add a slight color change on hover */
+.volume-icon:hover + .volume-slider-container,
+.volume-slider-container:hover {
+    display: block;
 }
