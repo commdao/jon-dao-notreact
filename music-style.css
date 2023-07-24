@@ -1,6 +1,6 @@
 body {
     color: rgba(255, 255, 255, 0.9);
-    font-family: sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 200;
     background: rgb(75,19,79);
 }
@@ -10,14 +10,17 @@ img {
     width: 250px;
     margin-top: 50px;
     padding-left: 50px;
-    border-radius: 100px;
+    object-fit: cover;
+}
+
+.top-image {
+    border-radius: 100%;
 }
 
 .spotlight {
     background: rgb(75,19,79);
     background: linear-gradient(23deg, rgba(75,19,79,1) 0%, rgba(211,111,214,1) 100%, rgba(34,34,34,1) 100%);
     display: flex;
-
 }
 
 .bio {
@@ -129,10 +132,11 @@ h1 {
     }
 
 .song-photo {
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     background-color: gray;
-    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
 }
 
 .heart {
@@ -192,6 +196,7 @@ h1 {
 }
 
 .volume-slider-container {
+    display: none;
     width: 6px;
     height: 70px;
     background-color: grey;
