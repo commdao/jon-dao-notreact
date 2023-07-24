@@ -9,7 +9,7 @@ img {
     height: 250px;
     width: 250px;
     margin-top: 50px;
-    padding-left: 50px;
+    margin-left: 50px;
     object-fit: cover;
 }
 
@@ -193,6 +193,12 @@ h1 {
 
 .time {
     margin-left: 10px;
+}
+
+.volume-container {
+    position: absolute;
+    margin-left: 90%;
+    
 }
 
 .volume-slider-container {
