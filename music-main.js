@@ -1,43 +1,43 @@
 let tracks = {
     1: {
         path: 'media/tracks/1 - Melty Blood Basilica.mp3',
-        duration: '3:08',
+        duration: '3:07',
         name: 'Melty Blood Basilica [Type B: 1-2]',
         photo: 'media/album-art/1.jpg'
     },
     2: {
         path:'media/tracks/2 - Private Room.m4a',
-        duration: '3:19',
+        duration: '3:26',
         name: 'Private Room in the Velvet Room',
         photo: 'media/album-art/2.jpg'
     },
     3: {
         path:'media/tracks/3 - Tie a Cherry.m4a',
-        duration:'3:10',
+        duration:'3:09',
         name:'CL - Tie a Cherry (BlackJackJonny Remix)',
         photo: 'media/album-art/3.jpg'
     },
     4: {
         path:'media/tracks/4 - Garibaldi Temple Remix.m4a',
-        duration:'1:57',
+        duration:'1:56',
         name: 'Garibaldi Temple Remix',
         photo: 'media/album-art/4.jpg'
     },
     5: {
         path:'media/tracks/5 - Horny Chiptune.m4a',
-        duration:'2:20',
+        duration:'2:25',
         name:"Mousse T vs Hot'n'Juicy - Horny (Chiptune Remix)",
         photo: 'media/album-art/5.jpg'
     },
     6: {
         path:'media/tracks/6 - Winter Sonata.m4a',
-        duration:'4:55',
+        duration:'4:24',
         name:'Winter Sonata',
         photo: 'media/album-art/6.jpg'
     },
     7: {
         path:'media/tracks/7 - Tulibu Dibu Douchu.m4a',
-        duration:'3:11',
+        duration:'1:05',
         name:'Tulibu Dibu Douchu',
         photo: 'media/album-art/7.jpg'
     },
@@ -216,42 +216,34 @@ const volumeSlider = document.querySelector('.volume-slider');
 let isVolumeDragging = false;
 
 // Add event listeners for volume control
-volumeIcon.addEventListener('mouseenter', showVolumeSlider);
-volumeIcon.addEventListener('mouseleave', hideVolumeSlider);
-
+volumeIcon.addEventListener('mousedown', startVolumeDrag);
+window.addEventListener('mousemove', handleVolumeDrag);
+window.addEventListener('mouseup', endVolumeDrag);
 volumeSliderContainer.addEventListener('mousedown', startVolumeDrag);
+volumeSliderContainer.addEventListener('mousemove', handleVolumeDrag);
+window.addEventListener('mouseup', endVolumeDrag);
 
-
-function showVolumeSlider() {
-    console.log('show volume');
-    volumeSliderContainer.classList.add('volume-slider-visible');
-}
-
-function hideVolumeSlider() {
-    console.log('hide volume');
-    volumeSliderContainer.classList.remove('volume-slider-visible');
-}
 
 function startVolumeDrag(event) {
     isVolumeDragging = true;
-    adjustVolume(event.clientY);
+    adjustVolume(event.clientX);
 }
 
 function handleVolumeDrag(event) {
     if (!isVolumeDragging) return;
     event.stopPropagation();
-    adjustVolume(event.clientY);
+    adjustVolume(event.clientX);
 }
 
 function endVolumeDrag() {
     isVolumeDragging = false;
 }
 
-function adjustVolume(mouseY) {
+function adjustVolume(mouseX) {
     const volumeSliderRect = volumeSliderContainer.getBoundingClientRect();
-    const offsetY = Math.max(0, Math.min(volumeSliderRect.height, mouseY - volumeSliderRect.top));
-    const volumePercentage = 1 - offsetY / volumeSliderRect.height;
+    const offsetX = Math.max(0, Math.min(volumeSliderRect.width, mouseX - volumeSliderRect.left));
+    const volumePercentage = offsetX / volumeSliderRect.width;
 
     audioPlayer.volume = volumePercentage;
-    volumeSlider.style.height = `${volumePercentage * 100}%`;
+    volumeSlider.style.width = `${volumePercentage * 100}%`;
 }
