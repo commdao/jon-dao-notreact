@@ -16,7 +16,8 @@ body {
 }
 
 .navbar {
-    background-color: #5c338e;
+  background: rgb(2,0,36);
+  background: linear-gradient(29deg, rgba(2,0,36,1) 0%, rgba(71,26,128,1) 0%, rgba(92,51,142,1) 45%);
     color: #fff;
     font-size: 1.25rem;
     text-transform: uppercase;
@@ -50,7 +51,7 @@ body {
     text-decoration: none;
     color: #fff;
     transition: color 0.3s;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .menu a:hover {
@@ -66,7 +67,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 100px 0 20px;
+    padding: 6rem 0 20px;
     overflow: hidden;
 }
 
@@ -102,13 +103,14 @@ body {
 }
 
 footer {
-  background-color: #471a80;
+  background: rgb(2,0,36);
+  background: linear-gradient(29deg, rgba(2,0,36,1) 0%, rgba(71,26,128,1) 0%, rgba(92,51,142,1) 100%);
   color: #fff;
   text-align: center;
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 20px 0;
+  padding: .5rem 0;
   box-sizing: border-box;
 }
 
@@ -140,6 +142,10 @@ footer {
     .menu-toggle {
       display: block;
       cursor: pointer;
+    }
+
+    .hero {
+      position: fixed;
     }
 
     html, body, section {
