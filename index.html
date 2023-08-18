@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>Jon Dao - Narrative Designer and Music Producer</title>
 </head>
 <body>
   <header>
@@ -18,10 +18,10 @@
           <span class="bar"></span>
         </div>
         <ul class="menu">
-          <li><a href="#writing">Writing</a></li>
-          <li><a href="#writing">Music</a></li>
-          <li><a href="#writing">Projects</a></li>
-          <li><a href="#writing">About</a></li>
+          <li><a href="https://www.commdao.com">Writing</a></li>
+          <li><a href="#music">Music</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
         </ul>
       </div>
     </nav>
@@ -36,13 +36,27 @@
   <footer>
     <div class="container">
       <ul class="social-links">
-        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://twitter.com/CommDao"><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href="https://www.youtube.com/@blackjackjonny"><i class="fa-brands fa-youtube"></i></a></li>
+        <li><a href="https://github.com/commdao/"><i class="fa-brands fa-github"></i></a></li>
+        <li><a id="email-link" href="#"><i class="fas fa-envelope"></i></a></li>
       </ul>
-      <p>Contact: @email.com</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const email1 = "contact";
+    const email2 = "jondao.com";
+
+    const emailFull = `${email1}@${email2}`;
+
+    const emailLink = document.getElementById("email-link");
+    emailLink.href = `mailto:${emailFull}`;
+
+    menuTest = document.querySelector('.menu');
+    menuTest.addEventListener("click", () => {
+      console.log("click is working");
+    })
+  </script>
 </body>
 </html>
