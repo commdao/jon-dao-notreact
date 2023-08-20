@@ -170,7 +170,7 @@ footer {
     }
 
     .hero {
-      position: relative;
+      /* position: relative; */
       height: 80vh;
       margin-top: -60px;
     }
