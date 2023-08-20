@@ -170,17 +170,26 @@ footer {
     }
 
     .hero {
-      /* position: relative; */
+      position: relative;
       height: 80vh;
       margin-top: -60px;
+
+      
+      overflow-y: hidden;
+      overflow-x: hidden;
     }
 
     .clouds {
       height: 100%;
       margin-top: 0;
+
+      
+      overflow-y: hidden;
+      overflow-x: hidden;
     }
 
     html, body, section {
       overflow-y: hidden;
+      overflow-x: hidden;
   }
 }
