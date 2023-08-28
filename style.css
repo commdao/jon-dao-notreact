@@ -72,17 +72,28 @@ body {
     justify-content: center;
     padding: 6rem 0 20px;
     overflow: hidden;
+    user-select: none;
 }
 
 .hero h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
+  /* z-index: 2; */
 }
+
+/* .hero h1:hover {
+  color: #ad4ad5;
+} */
 
 .hero p {
   font-size: 2.5rem;
+  /* z-index: 1; */
 }
+
+/* .hero p:hover {
+  color: #ad4ad5;
+}  */
 
 .clouds {
   position: absolute;
@@ -200,15 +211,31 @@ footer {
       position: relative;
       height: 80vh;
       margin-top: -60px;
+
+      
+      overflow-y: hidden;
+      overflow-x: hidden;
     }
 
     .clouds {
       height: 100%;
       margin-top: 0;
+
+      
+      overflow-y: hidden;
+      overflow-x: hidden;
     }
 
     html, body, section {
       overflow-y: hidden;
+      overflow-x: hidden;
+  }
+
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
   }
 
   .overlay a {font-size: 20px}
