@@ -9,7 +9,7 @@ body {
   background-color: #f5f5f5;
 }
 
-.container {
+.navbar-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -29,13 +29,13 @@ body {
     /* z-index: 1; */
 }
 
-.logo {
+.mobile-menu {
     font-size: 24px;
     font-weight: bold;
     display: none;
 }
 
-.menu-toggle {
+.mobile-menu-content {
   display: none;
 }
 
@@ -133,6 +133,48 @@ footer {
     font-size: 24px;
 }
 
+/* Mobile Menu */
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:#804FB3;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
 @media screen and (min-width: 767px) {
   .clouds {
     height: 80%; /* Adjust as needed */
@@ -145,11 +187,11 @@ footer {
         display: none;
     }
 
-    .logo {
+    .mobile-menu {
         display: block;
     }
 
-    .menu-toggle {
+    .mobile-menu-content {
       display: block;
       cursor: pointer;
     }
@@ -167,5 +209,12 @@ footer {
 
     html, body, section {
       overflow-y: hidden;
+  }
+
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
   }
 }

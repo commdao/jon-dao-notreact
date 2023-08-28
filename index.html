@@ -10,12 +10,14 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="container">
-        <div class="logo">JD</div>
-        <div class="menu-toggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+      <div class="navbar-container">
+        <div class="mobile-menu" onclick="openNav()">&#9776; Menu</div>
+        <div class="mobile-menu-content">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="https://www.commdao.com">Writing</a>
+          <a href="#music">Music</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
         </div>
         <ul class="menu">
           <li><a href="https://www.commdao.com">Writing</a></li>
@@ -34,7 +36,7 @@
   </section>
 
   <footer>
-    <div class="container">
+    <div class="footer-container">
       <ul class="social-links">
         <li><a href="https://twitter.com/CommDao"><i class="fa-brands fa-twitter"></i></a></li>
         <li><a href="https://www.youtube.com/@blackjackjonny"><i class="fa-brands fa-youtube"></i></a></li>
@@ -57,6 +59,15 @@
     menuTest.addEventListener("click", () => {
       console.log("click is working");
     })
+
+    function openNav() {
+      document.querySelector(".navbar-container").style.height = "100%";
+    }
+
+
+    function closeNav() {
+      document.querySelector(".navbar-container").style.height = "0%";
+    }
   </script>
 </body>
 </html>
