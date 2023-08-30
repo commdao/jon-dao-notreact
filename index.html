@@ -19,10 +19,10 @@
           <a href="#">About</a>
         </div>
         <ul class="menu">
-          <li><a href="#">Writing</a></li>
-          <li><a href="#">Music</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="#" onclick="displaySection('writing')">Writing</a></li>
+          <li><a href="#" onclick="displaySection('music')">Music</a></li>
+          <li><a href="#" onclick="displaySection('projects')">Projects</a></li>
+          <li><a href="#" onclick="displaySection('about')">About</a></li>
         </ul>
       </div>
     </nav>
@@ -34,6 +34,24 @@
       <p>Storyteller & Composer</p>
   </section>
 
+  <div id="writing" class="content-section" style="display:none;">
+
+  </div>
+
+  <div id="music" class="content-section" style="display:none;">
+
+  </div>
+
+  <div id="projects" class="content-section" style="display:none;">
+    <p>More projects to come.</p>
+    <iframe src="https://luxury-puffpuff-61e847.netlify.app/" width="375" height="667"></iframe>
+  </div>
+
+  <div id="about" class="content-section" style="display:none;">
+
+  </div>
+
+  
   <footer>
     <div class="footer-container">
       <ul class="social-links">
@@ -45,12 +63,18 @@
     </div>
   </footer>
 
-  <script>
+  <script src="script.js">
     function displaySection(sectionId) {
       const contentSections = document.querySelectorAll('.content-section');
       contentSections.forEach(section => {
         section.style.display = 'none';
-        // need to hide the hero h1 and p
+        
+        const heroSection = document.querySelector('.hero');
+        const heroHeading = heroSection.querySelector('h1');
+        const heroParagraph = heroSection.querySelector('p');
+
+        heroHeading.style.display = 'none';
+        heroParagraph.style.display = 'none';
       });
 
       const selectedSection = document.getElementById(sectionId);

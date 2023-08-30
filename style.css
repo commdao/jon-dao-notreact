@@ -12,7 +12,7 @@ body {
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: .5rem;
 }
 
 .navbar {
@@ -25,7 +25,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 3px 0;
     /* z-index: 1; */
 }
 
@@ -67,9 +67,27 @@ body {
   cursor:pointer;
 }
 
+.content-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(70, 26, 128, 0.733) 0%;
+  color: rgba(255, 255, 255, 0.943);
+  font-weight: 800;
+  font-size: 2rem;
+  height: 700px;
+  width: 1200px;
+  z-index: 1;
+}
+
+.content-section p {
+  padding: 1rem;
+}
+
 .hero {
     color: #804FB3;
-    height: 28rem;
+    height: 35rem;
     font-weight: 800;
     text-align: center;
     display: flex;
@@ -83,7 +101,7 @@ body {
 
 .hero h1 {
   font-size: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: .75rem;
   text-transform: uppercase;
   /* z-index: 2; */
 }
@@ -99,8 +117,6 @@ body {
   left: 0;
   width: 6500px;
   height: 100%;
-  /*
-  margin-top: 10rem; */
   background: url('/media/clouds.png');
   opacity: 0.4;
   animation: scrollClouds 320s linear infinite;
@@ -167,7 +183,7 @@ footer {
 
     .hero {
       position: relative;
-      height: 80vh; /* 80? */
+      height: 70vh; /* 80? */
       /* margin-top: -60px; */
 
       overflow-y: hidden;
