@@ -11,19 +11,18 @@
   <header>
     <nav class="navbar">
       <div class="navbar-container">
-        <div class="mobile-menu" onclick="openNav()">&#9776; Menu</div>
+        <div class="mobile-menu" onclick="toggleMobileMenu()">&#9776; Menu</div>
         <div class="mobile-menu-content">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="https://www.commdao.com">Writing</a>
-          <a href="#music">Music</a>
-          <a href="focus-nau/index.html">Projects</a>
-          <a href="#about">About</a>
+          <a href="#">Writing</a>
+          <a href="#">Music</a>
+          <a href="#">Projects</a>
+          <a href="#">About</a>
         </div>
         <ul class="menu">
-          <li><a href="https://www.commdao.com">Writing</a></li>
-          <li><a href="#music">Music</a></li>
-          <li><a href="focus-nau/index.html">Projects</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#">Writing</a></li>
+          <li><a href="#">Music</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About</a></li>
         </ul>
       </div>
     </nav>
@@ -47,6 +46,17 @@
   </footer>
 
   <script>
+    function displaySection(sectionId) {
+      const contentSections = document.querySelectorAll('.content-section');
+      contentSections.forEach(section => {
+        section.style.display = 'none';
+        // need to hide the hero h1 and p
+      });
+
+      const selectedSection = document.getElementById(sectionId);
+      selectedSection.style.display = 'block';
+    }
+
     const email1 = "contact";
     const email2 = "jondao.com";
 
@@ -55,18 +65,10 @@
     const emailLink = document.getElementById("email-link");
     emailLink.href = `mailto:${emailFull}`;
 
-    menuTest = document.querySelector('.menu');
-    menuTest.addEventListener("click", () => {
+    function toggleMobileMenu() {
       console.log("click is working");
-    })
-
-    function openNav() {
-      document.querySelector(".navbar-container").style.height = "100%";
-    }
-
-
-    function closeNav() {
-      document.querySelector(".navbar-container").style.height = "0%";
+      const menuContent = document.querySelector(".mobile-menu-content");
+      menuContent.classList.toggle("active");
     }
   </script>
 </body>
