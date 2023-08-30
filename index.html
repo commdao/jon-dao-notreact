@@ -43,8 +43,12 @@
   </div>
 
   <div id="projects" class="content-section" style="display:none;">
-    <p>More projects to come.</p>
-    <iframe src="https://luxury-puffpuff-61e847.netlify.app/" width="375" height="667"></iframe>
+    <p>I'll have more to share later, but for now you can see a preview of a focus timer I built below.
+      If you run into any odd behavior due to the iframe, you can view the project as its own page <a href="https://luxury-puffpuff-61e847.netlify.app/">here</a>.
+    </p>
+    <div class="project-container">  
+      <iframe src="https://luxury-puffpuff-61e847.netlify.app/" id="focus-nau"></iframe>
+    </div>
   </div>
 
   <div id="about" class="content-section" style="display:none;">
@@ -64,36 +68,7 @@
   </footer>
 
   <script src="script.js">
-    function displaySection(sectionId) {
-      const contentSections = document.querySelectorAll('.content-section');
-      contentSections.forEach(section => {
-        section.style.display = 'none';
-        
-        const heroSection = document.querySelector('.hero');
-        const heroHeading = heroSection.querySelector('h1');
-        const heroParagraph = heroSection.querySelector('p');
 
-        heroHeading.style.display = 'none';
-        heroParagraph.style.display = 'none';
-      });
-
-      const selectedSection = document.getElementById(sectionId);
-      selectedSection.style.display = 'block';
-    }
-
-    const email1 = "contact";
-    const email2 = "jondao.com";
-
-    const emailFull = `${email1}@${email2}`;
-
-    const emailLink = document.getElementById("email-link");
-    emailLink.href = `mailto:${emailFull}`;
-
-    function toggleMobileMenu() {
-      console.log("click is working");
-      const menuContent = document.querySelector(".mobile-menu-content");
-      menuContent.classList.toggle("active");
-    }
   </script>
 </body>
 </html>
