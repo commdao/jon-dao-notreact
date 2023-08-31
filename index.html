@@ -19,10 +19,10 @@
           <a href="#">About</a>
         </div>
         <ul class="menu">
-          <li><a href="#" onclick="displaySection('writing')">Writing</a></li>
-          <li><a href="#" onclick="displaySection('music')">Music</a></li>
-          <li><a href="#" onclick="displaySection('projects')">Projects</a></li>
-          <li><a href="#" onclick="displaySection('about')">About</a></li>
+          <li><a href="#writing" onclick="displaySection('writing')">Writing</a></li>
+          <li><a href="#music" onclick="displaySection('music')">Music</a></li>
+          <li><a href="#projects" onclick="displaySection('projects')">Projects</a></li>
+          <li><a href="#about" onclick="displaySection('about')">About</a></li>
         </ul>
       </div>
     </nav>
@@ -35,24 +35,51 @@
   </section>
 
   <div id="writing" class="content-section" style="display:none;">
-
+    <div class="column">
+      <h3>Works</h3><br>
+      <p>So, I could dig and pull from a decade back a list of articles I've written that were published. But, they'd all be e-learning, language, or fitness focused. And for the future, that's not the kind of writing I want to do!</p><br>
+      <p>Currently on the docket is submitting to this year's <a href="https://theghoststory.com/tgs-fiction-award">Ghost Story Supernatural Fiction Award</a>, where I'm likely to become a two-time reject. Then, I'll participate in the <a href="https://nanowrimo.org/">2023 NaNoWriMo</a>, where I hope to be a two-time completionist!</p>  
+    </div>
   </div>
 
   <div id="music" class="content-section" style="display:none;">
+    <div class="column">
+      <h3>BlackJackJonny</h3><br>
+      <p>I was supposed to learn drums properly in 2022, but I got a bit distracted with music theory and making mashups. As soon as get more original remixes in order, I'll set up a proper Spotify page. In the meantime, <a href="https://beamish-baklava-7e1a30.netlify.app/">I made a mock up</a> with some of my best hits. Choice YouTube playlists below:</p>
+      <br>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=o64b23czSqfC7eUd&amp;list=PL3rVUkfPR7auMM_RkhZQL16NqRwF-9K7i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
 
   </div>
 
   <div id="projects" class="content-section" style="display:none;">
-    <p>I'll have more to share later, but for now you can see a preview of a focus timer I built below.
-      If you run into any odd behavior due to the iframe, you can view the project as its own page <a href="https://luxury-puffpuff-61e847.netlify.app/">here</a>.
-    </p>
-    <div class="project-container">  
-      <iframe src="https://luxury-puffpuff-61e847.netlify.app/" id="focus-nau"></iframe>
-    </div>
+      <div class="column">
+        <h3>Focus Nau</h3>
+        <h4>Why Make This?</h4>
+        <p>The number one reason being <em>I</em> need it. I can try to block off time in the day to give myself a schedule, but there's no guarantee that those hours set aside will be productive. My brain handles chunks better than blocks, so I've had a lot more success with short bursts using a focus timer.</p>
+        <h4>Learning Points</h4>
+        <p>The mechanics of a countdown timer aren't too complex since you're just taking advantange of a decreasing incrementer (de-incrementer?). More than that, this project gave me the biggest growth and challenge in trying to create a design that's simple but appealing while being responsive to mobile layout. Originally I had tied a function to the refresh icon that would simply reload the entire page because I was having trouble creating the right type of function to restore the icons properly. It worked, but it had a slight delay, and it really hindered the responsive experience. Main tab focus pause</p>
+        <h4>What's Next?</h4>
+        <p>I'd like to add some sort of local storage component that could keep track of the spread of alloted time. For example, by end of day, you dedicated X hours for Business, Y hours for Study, and Z for Gaming. Could even throw in an experience bar and badges, but that sort of gamification never provided much incentive for me personally.</p>
+      </div>
+      
+      <div class="preview">
+        <a href="https://github.com/commdao/focus-nau"><i class="fa-brands fa-github"></i></a>
+        <a href="https://luxury-puffpuff-61e847.netlify.app/"><i class="fa-solid fa-link"></i></a>
+        <a href="https://luxury-puffpuff-61e847.netlify.app/">
+          <img src="media/preview_focus_timer.png" alt="focus timer preview">
+        </a>
+      </div>
   </div>
 
   <div id="about" class="content-section" style="display:none;">
-
+    <div class="column">
+      <h3>Jon Dao</h3><br>
+      <p>They say you're supposed to code publicly and share your journey along the way.</p><br>
+      <p>Whoops. From now on!</p><br>
+      <p>One of those YouTube videos said front-end devs should put a picture of themselves on their site. Do I really?</p><br>
+      <p>Site is just HTML, CSS, and vanilla JS for now. React is next.</p>
+    </div>
   </div>
 
   

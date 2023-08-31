@@ -4,6 +4,11 @@ body, h1, h2, h3, p {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: rgb(43, 244, 43);
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f5f5;
@@ -74,28 +79,49 @@ body {
   transform: translate(-50%, -50%);
   background: rgba(70, 26, 128, 0.733) 0%;
   color: rgba(255, 255, 255, 0.943);
-  font-weight: 800;
-  font-size: 2rem;
-  height: 700px;
-  width: 1200px;
+  font-weight: 600;
+  width: auto;
+  margin-top: 1.5rem;
   z-index: 1;
 }
 
-.content-section p {
+/* #projects {
   padding: 1rem;
-  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+} */
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  flex: 1;
 }
 
-.project-container {
-  position: relative;
+.column-left {
+  order: 1;
 }
 
-.project-container iframe {
+.column-right {
+  order: 2;
+}
+
+.preview a i {
+  color: purple;
+  padding: 5px;
+  font-size: 24px;
+}
+
+.preview img {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
-  border: none;
-  transform: scale(.7);
+  right: -25rem;
+  top: -4.5rem;
+  transform: scale(.55);
 }
 
 .hero {
