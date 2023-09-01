@@ -20,6 +20,8 @@ function displaySection(sectionId) {
     heroParagraph.style.display = 'none';
     const selectedSection = document.getElementById(sectionId);
     selectedSection.style.display = 'block';
+
+    history.pushState(null, null, `${sectionId}`);
   }
 function resetPage() {
     contentSections.forEach(section => {
