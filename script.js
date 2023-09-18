@@ -52,5 +52,25 @@ emailLink.href = `mailto:${emailFull}`;
 function toggleMobileMenu() {
     console.log("click is working");
     const menuContent = document.querySelector(".mobile-menu-content");
+    
+    if (menuContent.innerHTML === '') {
+        const links = [
+            { text: 'Writing', href: 'writing.html' },
+            { text: 'Music', href: 'music.html' },
+            { text: 'Projects', href: 'projects.html' },
+            { text: 'About', href: 'about.html' }
+        ];
+
+        links.forEach(linkInfo => {
+            const link = document.createElement('a');
+            link.href = linkInfo.href;
+            link.textContent = linkInfo.text;
+            link.onclick = () => displaySection(linkInfo.text.toLowerCase());
+            menuContent.appendChild(link);
+        });
+    } else {
+        menuContent.innerHTML = '';
+    }
+    
     menuContent.classList.toggle("active");
 }
