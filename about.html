@@ -35,16 +35,90 @@
         }
         a {
             text-decoration: none;
-            color: rgb(43, 244, 43);
+            color: #ad4ad5;
+            filter: drop-shadow(2px 1px black);
+        }
+        header {
+            margin: 1rem;
+        }
+        .desktop {
+            display: none;
+        }
+        .mobile-menu-content {
+            display: none;
+            position: absolute;
+            top: 0; /* Position it just below the mobile menu button */
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for a card-like effect */
+            z-index: 1; /* Ensure the menu is above other content */
+        }
+        
+        .mobile-menu-content.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            /*position: absolute;  Use fixed positioning for full-height background */
+            background-color: rgba(92,51,142,1); /* Background color */
+        }
+        .navbar a {
+            color: white;
+            filter: drop-shadow(2px 2px 1px black);
+            font-size: 2rem;
         }
     </style>
     <title>About Jon Dao</title>
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+          <div class="navbar-container">
+            <div class="mobile-menu" onclick="toggleMobileMenu()">&#9776; Menu</div>
+            <div id="mobile-menu-content" class="mobile-menu-content"></div>
+            <ul class="menu desktop">
+              <li><a href="javascript:void(0);" onclick="displaySection('writing')">Writing</a></li>
+              <li><a href="javascript:void(0);" onclick="displaySection('music')">Music</a></li>
+              <li><a href="javascript:void(0);" onclick="displaySection('projects')">Projects</a></li>
+              <li><a href="javascript:void(0);" onclick="displaySection('about')">About</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
         <p>They say you're supposed to code publicly and share your journey along the way.</p>
         <p>Whoops. From now on!</p>
         <iframe width="390" height="243" src="https://www.youtube.com/embed/yZmf8IjLhG4?si=w9iPC07YlmW3z_r_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <p>One tutorial I watched said that front-end devs should put a picture of themselves on their site. My own YouTube video should be enough, yeah?</p>
         <p>Site is HTML, CSS, and vanilla JS for now. React is next.</p>
+        <script>
+            function toggleMobileMenu() {
+            console.log("click is working");
+            const menuContent = document.querySelector(".mobile-menu-content");
+            
+            if (menuContent.innerHTML === '') {
+                const links = [
+                    { text: 'Writing', href: 'writing.html' },
+                    { text: 'Music', href: 'music.html' },
+                    { text: 'Projects', href: 'projects.html' },
+                    { text: 'About', href: 'about.html' }
+                ];
+    
+                links.forEach(linkInfo => {
+                    const link = document.createElement('a');
+                    link.href = linkInfo.href;
+                    link.textContent = linkInfo.text;
+                    link.onclick = () => displaySection(linkInfo.text.toLowerCase());
+                    menuContent.appendChild(link);
+                });
+            } else {
+                menuContent.innerHTML = '';
+            }
+            
+            menuContent.classList.toggle("active");
+        }
+        </script>
 </body>
 </html>
