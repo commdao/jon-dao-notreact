@@ -50,7 +50,6 @@ const emailLink = document.getElementById("email-link");
 emailLink.href = `mailto:${emailFull}`;
 
 function toggleMobileMenu() {
-    console.log("click is working");
     const menuContent = document.querySelector(".mobile-menu-content");
     
     if (menuContent.innerHTML === '') {

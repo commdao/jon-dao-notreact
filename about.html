@@ -4,72 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <style>
-        body {
-            background: rgb(2,0,36);
-            background: linear-gradient(29deg, rgba(2,0,36,1) 0%, rgba(71,26,128,1) 0%, rgba(92,51,142,1) 45%);
-            color: rgba(255, 255, 255, 0.908);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        h1 {
-            margin-top: 10rem;
-        }
-        p {
-            margin: 1rem;
-        }
-        .fa-solid {
-            margin: 1rem;
-            font-size: 5rem;
-            color: rgb(123, 47, 222);
-            padding: 2rem 2rem;
-        }
-        iframe {
-            margin: 1.15rem;
-        }
-        a {
-            text-decoration: none;
-            color: #ad4ad5;
-            filter: drop-shadow(2px 1px black);
-        }
-        header {
-            margin: 1rem;
-        }
-        .desktop {
-            display: none;
-        }
-        .mobile-menu-content {
-            display: none;
-            position: absolute;
-            top: 0; /* Position it just below the mobile menu button */
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for a card-like effect */
-            z-index: 1; /* Ensure the menu is above other content */
-        }
-        
-        .mobile-menu-content.active {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            /*position: absolute;  Use fixed positioning for full-height background */
-            background-color: rgba(92,51,142,1); /* Background color */
-        }
-        .navbar a {
-            color: white;
-            filter: drop-shadow(2px 2px 1px black);
-            font-size: 2rem;
-        }
-    </style>
+    <link rel="stylesheet" href="m_style.css">
     <title>About Jon Dao</title>
 </head>
 <body>
@@ -78,12 +13,6 @@
           <div class="navbar-container">
             <div class="mobile-menu" onclick="toggleMobileMenu()">&#9776; Menu</div>
             <div id="mobile-menu-content" class="mobile-menu-content"></div>
-            <ul class="menu desktop">
-              <li><a href="javascript:void(0);" onclick="displaySection('writing')">Writing</a></li>
-              <li><a href="javascript:void(0);" onclick="displaySection('music')">Music</a></li>
-              <li><a href="javascript:void(0);" onclick="displaySection('projects')">Projects</a></li>
-              <li><a href="javascript:void(0);" onclick="displaySection('about')">About</a></li>
-            </ul>
           </div>
         </nav>
       </header>
