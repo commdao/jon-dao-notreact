@@ -32,32 +32,6 @@
         <p>I'd like to add some sort of local storage component that could keep track of the spread of alloted time. For example, by end of day, you dedicated X hours for Business, Y hours for Study, and Z for Gaming. Could even throw in an experience bar and badges, but that sort of gamification never provided much incentive for me personally.</p>
         <a href="https://github.com/commdao/focus-nau" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="https://luxury-puffpuff-61e847.netlify.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-        <script>
-            function toggleMobileMenu() {
-            console.log("click is working");
-            const menuContent = document.querySelector(".mobile-menu-content");
-            
-            if (menuContent.innerHTML === '') {
-                const links = [
-                    { text: 'Writing', href: 'writing.html' },
-                    { text: 'Music', href: 'music.html' },
-                    { text: 'Projects', href: 'projects.html' },
-                    { text: 'About', href: 'about.html' }
-                ];
-    
-                links.forEach(linkInfo => {
-                    const link = document.createElement('a');
-                    link.href = linkInfo.href;
-                    link.textContent = linkInfo.text;
-                    link.onclick = () => displaySection(linkInfo.text.toLowerCase());
-                    menuContent.appendChild(link);
-                });
-            } else {
-                menuContent.innerHTML = '';
-            }
-            
-            menuContent.classList.toggle("active");
-        }
-        </script>
+        <script src="script.js"></script>
 </body>
 </html>

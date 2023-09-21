@@ -22,32 +22,6 @@
     </div>
     <p>Choice YouTube playlists below:</p>
     <iframe width="390" height="243" src="https://www.youtube.com/embed/videoseries?si=o64b23czSqfC7eUd&amp;list=PL3rVUkfPR7auMM_RkhZQL16NqRwF-9K7i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <script>
-        function toggleMobileMenu() {
-        console.log("click is working");
-        const menuContent = document.querySelector(".mobile-menu-content");
-        
-        if (menuContent.innerHTML === '') {
-            const links = [
-                { text: 'Writing', href: 'writing.html' },
-                { text: 'Music', href: 'music.html' },
-                { text: 'Projects', href: 'projects.html' },
-                { text: 'About', href: 'about.html' }
-            ];
-
-            links.forEach(linkInfo => {
-                const link = document.createElement('a');
-                link.href = linkInfo.href;
-                link.textContent = linkInfo.text;
-                link.onclick = () => displaySection(linkInfo.text.toLowerCase());
-                menuContent.appendChild(link);
-            });
-        } else {
-            menuContent.innerHTML = '';
-        }
-        
-        menuContent.classList.toggle("active");
-    }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

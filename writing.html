@@ -18,32 +18,6 @@
       </header>
     <p>So, I could dig and pull from a decade back a list of articles I've written that were published. But, they'd all be e-learning, language, or fitness focused. And for the future, that's not the kind of writing I want to do!</p>
     <p>Currently on the docket is submitting to this year's <a href="https://theghoststory.com/tgs-fiction-award" target="_blank">Ghost Story Supernatural Fiction Award</a>, where I'm likely to become a two-time reject. Then, I'll participate in the <a href="https://nanowrimo.org/" target="_blank">2023 NaNoWriMo</a>, where I hope to be a two-time completionist!</p>
-    <script>
-        function toggleMobileMenu() {
-        console.log("click is working");
-        const menuContent = document.querySelector(".mobile-menu-content");
-        
-        if (menuContent.innerHTML === '') {
-            const links = [
-                { text: 'Writing', href: 'writing.html' },
-                { text: 'Music', href: 'music.html' },
-                { text: 'Projects', href: 'projects.html' },
-                { text: 'About', href: 'about.html' }
-            ];
-
-            links.forEach(linkInfo => {
-                const link = document.createElement('a');
-                link.href = linkInfo.href;
-                link.textContent = linkInfo.text;
-                link.onclick = () => displaySection(linkInfo.text.toLowerCase());
-                menuContent.appendChild(link);
-            });
-        } else {
-            menuContent.innerHTML = '';
-        }
-        
-        menuContent.classList.toggle("active");
-    }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
