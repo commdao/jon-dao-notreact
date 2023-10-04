@@ -78,6 +78,10 @@ body {
   z-index: 1;
 }
 
+.content-section p {
+  margin: .5rem;
+}
+
 .column {
   display: flex;
   flex-direction: column;
