@@ -3,35 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="m_style.css">
     <title>Jon Dao Project Portfolio</title>
+    <style>
+      body {
+        background: #804FB3;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+      }
+      header{
+        padding: 2em 0;
+      }
+      .cropped {
+        width: 60%;
+        height: 700px;
+        overflow: hidden;
+      }
+      .titleArea {
+        background-color: #fff;
+        padding: 2em 0;
+        width: 100%;
+        display: block;
+      }
+      .gridBox {
+        display: grid;
+        column-gap: 1em;
+        row-gap: 1.5em;
+        grid-template-columns:repeat(2, 1fr);
+      }
+      .titleBox a{
+        background-color: rgba(70, 26, 128, 0.729);
+        color: #fff;
+        font-size: 1.2em;
+        padding: 0.8em;
+        border-radius: 10px;
+        display: block;
+        text-align: center;
+        margin-top: 0.5em;
+        text-decoration: none;
+      }
+      .titleBox a:hover {
+        background-color: rgba(70, 26, 128, 0.407);
+      }
+      .titleBox a.non{
+        pointer-events: none;
+        background-color: #666;
+        opacity: 0.3;
+        color: #ccc;
+      }
+      .titleBox img {
+        border-radius: 10px;
+        border: #fff 4px solid;
+        box-shadow: 0px 3px 5px #ccc;
+      }
+      .andmore {
+        width: 50%;
+        margin: 2em auto 4em;
+        text-align: center;
+      }
+
+      @media (max-width: 978px) {}
+
+      @media (max-width: 786px) {}
+
+      @media (max-width: 480px) {
+        header {
+          padding: 1em 0;
+        }
+        .gridBox {
+          grid-template-columns: repeat(1, 1fr);
+          padding: 0 1em;
+        }
+      }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-          <div class="navbar-container">
-            <div class="mobile-menu" onclick="toggleMobileMenu()">&#9776; MENU</div>
-            <div id="mobile-menu-content" class="mobile-menu-content"></div>
-        </nav>
-      </header>
+<div id="wrap">
+  <div id="contents">
+    <div class="mainWrap">
+      <div id="top" class="main">
+        <header class="contentsBox"><img src="media/portfolio-header.jpg" alt="Portfolio Projects" class="cropped"></header>
+        <div class="titleArea">
+          <div class="contentsBox gridBox">
+            <div class="titleBox">
+              <img src="media/2.png" alt="Focus Timer">
+              <a href="https://luxury-puffpuff-61e847.netlify.app/">Focus Timer</a>
+            </div>
+            <div class="titleBox">
+              <img src="media/1.png" alt="Regrets Journal">
+              <a href="https://tubular-faloodeh-6243c9.netlify.app/">Regrets Journal</a>
+            </div>
+            <div class="titleBox">
+              <img src="media/3.png" alt="Music Player">
+              <a href="https://beamish-baklava-7e1a30.netlify.app/">Music Player</a>
+            </div>
+            <div class="titleBox">
+              <img src="" alt="">
+              <a href="">Language Table</a>
+            </div>
+            <div class="titleBox">
+              <img src="" alt="">
+              <a href="">Slotmachine Stream</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="andmore"><img src="" alt=""></div>
+    </div><!-- .main -->
+  </div><!--.mainWrap-->
+  <footer>
+    <div class="logoArea">
 
-    <h3>Focus Nau (Focus Timer)</h3>
-
-    <div class="preview">
-        <a href="https://luxury-puffpuff-61e847.netlify.app/" target="_blank">
-          <img src="media/preview_focus_timer.png" alt="focus timer preview" width="390" height ="">
-        </a>
     </div>
-
-        <h4>Why Make This?</h4>
-        <p>The number one reason being <em>I</em> need it. I can try to block off time in the day to give myself a schedule, but there's no guarantee that those hours set aside will be productive. My brain handles chunks better than blocks, so I've had a lot more success with short bursts using a focus timer.</p>
-        <h4>Learning Points</h4>
-        <p>The mechanics of a countdown timer aren't too complex since you're just taking advantange of a decreasing incrementer (de-incrementer?). More than that, this project gave me the biggest growth and challenge in trying to create a design that's simple but appealing while being responsive to mobile layout. Originally I had tied a function to the refresh icon that would simply reload the entire page because I was having trouble creating the right type of function to restore the icons properly. It worked, but it had a slight delay, and it really hindered the responsive experience. Main tab focus pause</p>
-        <h4>What's Next?</h4>
-        <p>I'd like to add some sort of local storage component that could keep track of the spread of alloted time. For example, by end of day, you dedicated X hours for Business, Y hours for Study, and Z for Gaming. Could even throw in an experience bar and badges, but that sort of gamification never provided much incentive for me personally.</p>
-        <a href="https://github.com/commdao/focus-nau" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://luxury-puffpuff-61e847.netlify.app/" target="_blank"><i class="fa-solid fa-link"></i></a>
-        <script src="script.js"></script>
+  </footer>
+</div>
 </body>
 </html>
