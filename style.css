@@ -1,7 +1,7 @@
 body, h1, h2, h3, p {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 a {
@@ -237,14 +237,14 @@ footer {
 
     .hero {
       position: relative;
-      height: 76vh;
+      min-height: 76vh;
 
       overflow-y: hidden;
       overflow-x: hidden;
     }
 
     footer {
-      position: relative;
+      position: absolute;
       bottom: 0;
     }
 
